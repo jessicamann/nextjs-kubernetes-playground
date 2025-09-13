@@ -21,8 +21,10 @@ const anotherSlightlyLessExpensiveFunction = (): Promise<any> => {
 };
 
 const someExpensiveFunction = (): Promise<any> => {
+  const delayMs = 10 * 1000;
+  console.log(`running expensive function, with delay ${delayMs}`);
+
   const span = tracer.startSpan("/hello.someExpensiveFunction");
-  const delayMs = 5 * 1000;
   span.setAttributes({
     delay: delayMs,
   });

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+  labels:
+    app: my-app
+    app.kubernetes.io/version: "7"
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 0
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+        app.kubernetes.io/version: "7"
+    spec:
+      # terminationGracePeriodSeconds: 15
+      terminationGracePeriodSeconds: 5 # default is 30s
+      containers:
+        - name: my-app
+          image: my-app:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
