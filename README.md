@@ -28,3 +28,10 @@ Mimick Kubernetes termination signals to pods.
 
 `kill -s SIGTERM <processid>`
 
+
+todo: package app & run in minikube
+
+`docker build -t my-app .`
+
+`docker run -p 3000:3000 --rm my-app:latest`
+
