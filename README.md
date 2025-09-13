@@ -1,3 +1,29 @@
+## Traces locally
+
+Start [all-in-one jaegar setup](https://www.jaegertracing.io/docs/2.10/getting-started/) to have the collector and ingestor setup.
+
+```bash
+docker run --rm --name jaeger \
+  -p 16686:16686 \
+  -p 4317:4317 \
+  -p 4318:4318 \
+  -p 5778:5778 \
+  -p 9411:9411 \
+  cr.jaegertracing.io/jaegertracing/jaeger:2.10.0
+```
+
+Go to `http://localhost:16686` to access jaegar UI.
+
+Start the application locally
+
+```bash
+npm run dev
+```
+
+Go to `http://localhost:3000` and play around. Or hit your server apis, and you'll see traces.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
 ## Getting Started
