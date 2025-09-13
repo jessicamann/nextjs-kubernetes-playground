@@ -1,5 +1,7 @@
-import { registerOTel } from '@vercel/otel'
- 
+import { registerOTel } from "@vercel/otel";
+
 export function register() {
-  registerOTel({ serviceName: 'my-frontend-app' })
+  registerOTel({
+    serviceName: "my-frontend-app",
+  });
 }
