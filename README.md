@@ -22,7 +22,7 @@ npm run dev
 
 Go to `http://localhost:3000` and play around. Or hit your server apis, and you'll see traces.
 
-## Graceful shutdown
+## Graceful shutdown (sorta)
 
 The sample repo has these following:
 - an endpoint `/api/hello` which takes at least 10s to complete
@@ -90,3 +90,10 @@ Give it a few seconds, and you'll see [__A__] succeeds, despite the deployment h
 This is because:
 - `terminationGracePeriodSeconds` ensures that kubernetes wait for `15s` before sending the pod `SIGTERM` signal.
 - Since we've set the grace period to be a least as long as the longest operation, [__A__] finishes successfully.
+
+### Cleanup
+
+```
+minikube stop
+minikube delete --all
+```
